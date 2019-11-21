@@ -7,7 +7,8 @@
 ARCADE=/media/fat/_Arcade
 
 # Remove previous jotego symlinks
-for symlink in $(ls -lH $ARCADE | grep "\-> *jt*" |awk '{print $8}')
+
+for symlink in $(ls -lH $ARCADE | grep -E "(\->|jt*.rbf)"|awk '{print $8}')
 do
   unlink $ARCADE/$symlink
 done
