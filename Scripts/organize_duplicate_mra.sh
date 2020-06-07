@@ -26,7 +26,9 @@ find "$MRA_FILES" -type f -iname "*mra" |\
           originalFile="${sortedList[0]}"
           newFile=($( echo "${sortedList[-1]}" ))
 
-          echo "Newer: [$newFile] Older: [$originalFile]"
+          echo "Newer: [$newFile]" 
+          echo "Older: [$originalFile]"
+          echo
 
           # finally, clean up these files
           # Uncomment line below to do destructive stuff!
