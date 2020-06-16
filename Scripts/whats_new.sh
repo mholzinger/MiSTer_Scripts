@@ -1,14 +1,8 @@
 #!/bin/bash
 
 # test for input
-# TODO: validate integer value to set input
-if [ -z "$1" ]
-  then
-    # Modified time in days:
-    mdays=2
-  else
-    mdays="$1"
-fi
+mdays=${1:-2}  # default value is 2 days
+(( mdays >= 1 && mdays <= 100 )) || {echo "Error: non-integer value" ; exit 1 ;}
 
 mhours=$(($mdays * 24))
 
@@ -27,4 +21,4 @@ find /media/fat/ -mtime -$mdays -iname "*rbf"|\
       echo " -" `dirname "$rbf"| sed 's/\/media\/fat\///g'` : `basename $rbf` "["`date +"%a, %b %d" -r "$rbf"`"]"
     done
 
-
+exit 0
