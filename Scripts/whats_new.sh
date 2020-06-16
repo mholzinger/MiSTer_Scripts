@@ -24,7 +24,7 @@ echo "Here is what's new in compiled Mister Cores in the last [$mhours] hours ($
 find /media/fat/ -mtime -$mdays -iname "*rbf"|\
   while read -r rbf
     do
-      echo " -" `dirname "$rbf"` : `basename $rbf` "["`date +"%a, %b %d" -r "$rbf"`"]"
+      echo " -" `dirname "$rbf"| sed 's/\/media\/fat\///g'` : `basename $rbf` "["`date +"%a, %b %d" -r "$rbf"`"]"
     done
 
 
